@@ -4,8 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"  # 每天 UTC 0:00 触发
   workflow_dispatch:  # 允许手动触发
-
-  # run on every push on the master branch
   push:
     branches:
     - master
@@ -33,7 +31,6 @@ jobs:
           git config user.email "justcharlzg@outlook.com"
           git config user.name "justcharlzG"
 
-
       - name: Commit and push the popular repositories list
         run: |
           git add readme.md
@@ -43,5 +40,5 @@ jobs:
             exit 0
           else
             git commit -m "Update popular repositories list"
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:master
           fi
