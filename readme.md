@@ -1,0 +1,10 @@
+- [rclone](https://github.com/rclone/rclone) - ⭐ 48788 stars - 🕒 2025-02-15T15:22:21Z updated
+- [intellij-community](https://github.com/JetBrains/intellij-community) - ⭐ 17646 stars - 🕒 2025-02-15T15:22:24Z updated
+- [core](https://github.com/home-assistant/core) - ⭐ 76539 stars - 🕒 2025-02-15T15:22:12Z updated
+- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - ⭐ 26954 stars - 🕒 2025-02-15T15:21:45Z updated
+- [glance](https://github.com/glanceapp/glance) - ⭐ 10468 stars - 🕒 2025-02-15T15:21:18Z updated
+- [tauri](https://github.com/tauri-apps/tauri) - ⭐ 89459 stars - 🕒 2025-02-15T15:21:13Z updated
+- [vlc](https://github.com/videolan/vlc) - ⭐ 14895 stars - 🕒 2025-02-15T15:20:08Z updated
+- [union](https://github.com/unionlabs/union) - ⭐ 23495 stars - 🕒 2025-02-15T15:20:53Z updated
+- [pytorch](https://github.com/pytorch/pytorch) - ⭐ 86850 stars - 🕒 2025-02-15T15:19:24Z updated
+- [RSSHub](https://github.com/DIYgod/RSSHub) - ⭐ 35224 stars - 🕒 2025-02-15T15:18:43Z updated
