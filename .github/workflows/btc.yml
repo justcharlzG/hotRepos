@@ -1,0 +1,99 @@
+name: Fetch BTC Price and Update README
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # 每天 UTC 0:00 触发
+  workflow_dispatch:  # 允许手动触发
+  push:
+    branches:
+      - master  # 如果有推送到 master 分支，也会触发
+
+permissions:
+  contents: write  # 允许修改内容
+
+jobs:
+  fetch_and_update_btc_price:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true 
+          fetch-depth: 1  # 只拉取最新的提交
+
+      # Step 2: Fetch BTC Price
+      - name: Fetch BTC Price
+        run: |
+          # 使用 CoinGecko API 获取 BTC 当前价格
+          BTC_PRICE=$(curl -s https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd | jq -r '.bitcoin.usd')
+          echo "BTC Price: $BTC_PRICE"
+          echo "BTC_PRICE=$BTC_PRICE" >> $GITHUB_ENV
+
+      # Step 3: Generate BTC Price Chart (using Python and Matplotlib)
+      - name: Generate Price Chart
+        run: |
+          # 安装 Python 和所需的库
+          sudo apt-get install python3-pip
+          pip3 install matplotlib
+          # 获取当前时间和 BTC 价格并保存
+          CURRENT_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+          echo "BTC Price at $CURRENT_TIME: $BTC_PRICE" >> btc_price_history.txt
+          # 使用 matplotlib 生成 BTC 价格走势图
+          python3 - <<EOF
+import matplotlib.pyplot as plt
+import datetime
+
+# 从文件加载价格历史
+time_stamps = []
+prices = []
+with open("btc_price_history.txt", "r") as f:
+    lines = f.readlines()
+    for line in lines:
+        parts = line.split(":")
+        if len(parts) == 2:
+            time_stamps.append(parts[0].strip())
+            prices.append(float(parts[1].strip()))
+
+# 绘制价格走势图
+plt.figure(figsize=(10, 5))
+plt.plot(time_stamps, prices, marker='o', color='b', label="BTC Price (USD)")
+plt.xticks(rotation=45, ha="right")
+plt.xlabel("Time")
+plt.ylabel("Price (USD)")
+plt.title("Bitcoin Price History")
+plt.grid(True)
+plt.tight_layout()
+
+# 保存图表
+plt.savefig("btc_price_chart.png")
+EOF
+
+      # Step 4: Update README with BTC Price Chart
+      - name: Update README
+        run: |
+          # 将生成的图表添加到仓库中的 README 文件
+          echo "![BTC Price Chart](btc_price_chart.png)" >> README.md
+          git add README.md
+          git add btc_price_chart.png
+
+      # Step 5: Setup Git Configuration
+      - name: Setup Git Configuration
+        run: |
+          git config user.email "justcharlzg@outlook.com"
+          git config user.name "justcharlzG"
+
+      # Step 6: Commit and Push Changes to master
+      - name: Commit and Push Changes
+        run: |
+          commit_messages=("Update BTC Price Chart: ⏰" "BTC Price Update: 💰" "Bitcoin Price Trend Update: 📊")
+          random_msg=${commit_messages[$RANDOM % ${#commit_messages[@]}]}
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          else
+            git commit -m "$random_msg"
+            git push origin master
+          fi
