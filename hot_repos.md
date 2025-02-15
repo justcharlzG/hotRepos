@@ -1,0 +1,10 @@
+- [live](https://github.com/fanmingming/live) - ⭐ 24726 stars - 🕒 2025-02-15T14:22:43Z updated
+- [clash-nyanpasu](https://github.com/libnyanpasu/clash-nyanpasu) - ⭐ 10345 stars - 🕒 2025-02-15T14:22:26Z updated
+- [nixpkgs](https://github.com/NixOS/nixpkgs) - ⭐ 19312 stars - 🕒 2025-02-15T14:22:01Z updated
+- [FlClash](https://github.com/chen08209/FlClash) - ⭐ 14094 stars - 🕒 2025-02-15T14:21:58Z updated
+- [hey](https://github.com/heyxyz/hey) - ⭐ 24393 stars - 🕒 2025-02-15T14:21:47Z updated
+- [webtorrent](https://github.com/webtorrent/webtorrent) - ⭐ 29921 stars - 🕒 2025-02-15T14:21:45Z updated
+- [OpenRCT2](https://github.com/OpenRCT2/OpenRCT2) - ⭐ 13888 stars - 🕒 2025-02-15T14:21:20Z updated
+- [akshare](https://github.com/akfamily/akshare) - ⭐ 10296 stars - 🕒 2025-02-15T14:20:50Z updated
+- [php-src](https://github.com/php/php-src) - ⭐ 38667 stars - 🕒 2025-02-15T14:20:35Z updated
+- [koodo-reader](https://github.com/koodo-reader/koodo-reader) - ⭐ 20851 stars - 🕒 2025-02-15T14:19:56Z updated
