@@ -32,7 +32,7 @@ jobs:
       # Step 3: Extract and format popular repositories list as Markdown
       - name: Format Popular Repos List
         run: |
-          jq -r '.items[] | "- [\(.name)](\(.html_url)) - ⭐ \(.stargazers_count) stars - 🕒 \(.updated_at) updated" ' hot_repos.json > hot_repos.md
+          jq -r '.items[] | "- [\(.name)](\(.html_url)) - ⭐ \(.stargazers_count) stars - 🕒 \(.updated_at) updated" ' hot_repos.json > readme.md
 
       # Step 4: Set up Git configuration
       - name: Setup Git Configuration
@@ -46,7 +46,7 @@ jobs:
           commit_messages=("Update Hot Repos: 🔥" "Refresh Hot Repos List: 🌐" "Top Repos Update: 📊")
           random_msg=${commit_messages[$RANDOM % ${#commit_messages[@]}]}
 
-          git add hot_repos.md
+          git add readme.md
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -58,5 +58,6 @@ jobs:
       # Step 6: Push Changes to a new branch
       - name: Push Changes
         if: success()  # 仅在 commit 成功时推送
-        run: |
-          git push origin HEAD:popular-repos-updates  # 推送到新分支 "popular-repos-updates"
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
