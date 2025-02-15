@@ -28,8 +28,25 @@ jobs:
           # 使用 jq 提取需要的数据并格式化为 Markdown
           jq -r '.items[] | "- [\(.name)](\(.html_url)) - ⭐ \(.stargazers_count) stars - 🕒 \(.updated_at) updated" ' popular_repos.json > readme.md
 
+      - name: Setup Git Configuration
+        run: |
+          git config user.email "justcharlzg@outlook.com"
+          git config user.name "justcharlzG"
+
+
       - name: Commit and push the popular repositories list
         run: |
           git add readme.md
-          git commit -m "Update popular repositories list (No Token)"
-          git push
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          else
+            git commit -m "Update popular repositories list"
+          fi
+
+      - name: Push Changes
+        if: success()  # 仅在 commit 成功时推送
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
