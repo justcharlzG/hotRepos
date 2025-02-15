@@ -31,8 +31,12 @@ jobs:
           git config user.email "justcharlzg@outlook.com"
           git config user.name "justcharlzG"
 
-      - name: Commit and push the popular repositories list
+      - name: Create and push changes to a new branch
         run: |
+          # 创建新的分支
+          git checkout -b popular-repos-updates
+
+          # 提交更改
           git add readme.md
 
           if git diff --staged --quiet; then
@@ -40,5 +44,6 @@ jobs:
             exit 0
           else
             git commit -m "Update popular repositories list"
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:master
+            # 推送到新分支
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:popular-repos-updates
           fi
