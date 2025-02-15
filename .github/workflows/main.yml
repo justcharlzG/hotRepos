@@ -43,10 +43,5 @@ jobs:
             exit 0
           else
             git commit -m "Update popular repositories list"
+            git push
           fi
-
-      - name: Push Changes
-        if: success()  # 仅在 commit 成功时推送
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
