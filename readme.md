@@ -1,0 +1,10 @@
+- [OpenBB](https://github.com/OpenBB-finance/OpenBB) - ⭐ 54012 stars - 🕒 2025-10-30T02:02:55Z updated
+- [tensorflow](https://github.com/tensorflow/tensorflow) - ⭐ 192254 stars - 🕒 2025-10-30T02:03:01Z updated
+- [spark](https://github.com/apache/spark) - ⭐ 42191 stars - 🕒 2025-10-30T02:02:54Z updated
+- [servo](https://github.com/servo/servo) - ⭐ 33294 stars - 🕒 2025-10-30T02:02:54Z updated
+- [rolldown](https://github.com/rolldown/rolldown) - ⭐ 12244 stars - 🕒 2025-10-30T02:01:36Z updated
+- [starrocks](https://github.com/StarRocks/starrocks) - ⭐ 10812 stars - 🕒 2025-10-30T02:01:24Z updated
+- [mastra](https://github.com/mastra-ai/mastra) - ⭐ 17862 stars - 🕒 2025-10-30T02:01:17Z updated
+- [chromium](https://github.com/chromium/chromium) - ⭐ 22090 stars - 🕒 2025-10-30T02:00:56Z updated
+- [New-Grad-Positions](https://github.com/SimplifyJobs/New-Grad-Positions) - ⭐ 15482 stars - 🕒 2025-10-30T02:02:24Z updated
+- [litellm](https://github.com/BerriAI/litellm) - ⭐ 30467 stars - 🕒 2025-10-30T02:03:04Z updated
